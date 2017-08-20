@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html data-ng-app="citiesApp">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Cities</title>
+    <script src="angular.js"></script>
+    <script src="controller.js"></script>
+</head>
+
+<body>
+    <div data-ng-controller="citiesController">
+        <h1>Cities</h1>
+        <form>
+            Search:<input type="text" name="search" data-ng-model="searchItem">
+        </form>
+        <ul>
+            <li data-ng-repeat="city in cities | filter:searchItem">
+                {{city.metropolis}}, {{city.continent}}, {{city.population}}
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

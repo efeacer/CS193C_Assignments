@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+}
+#bigContainer {
+  display: flex;
+}
+#container {
+   margin-left: 50px;
+}
+#updateButton {
+  margin-top: 20px;
+  background-color: powderblue;
+  font-size: 12pt;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px solid blue;
+}
+h1 {
+  font-size: 28pt;
+}
+.radio {
+  margin-left: 20px;
+}
+thead {
+  background-color: #091A6F;
+  color: white;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid #091A6F;
+}
+th, td {
+  padding: 10px;
+}
+th + th {
+  border-left: 1px solid white;
+}
+td + td {
+  border-left: 1px solid #091A6F
+}
+.toColor {
+  background-color: powderblue;
+}
+span {
+  font-size: 15pt;
+}

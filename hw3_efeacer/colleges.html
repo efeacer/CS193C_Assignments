@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bay Area Colleges and Universities</title>
+  <link rel="stylesheet" type="text/css" href="colleges.css">
+</head>
+<body id = "body">
+  <script src="colleges.js" defer></script>
+  <h1>Bay Are Colleges and Universities</h1>
+  <div id="bigContainer">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>SAT High</th><th>SAT Low</th><th>Tution</th>
+        </tr>
+      </thead>
+      <tbody id="mainTable"></tbody>
+    </table>
+    <div id="container">
+      <table id="smallTable">
+        <thead>
+          <tr>
+            <th>Search Criteria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="radio" type="radio" name="ownership" value="public">Public
+              <input class="radio" type="radio" name="ownership" value="private">Private
+              <input class="radio" type="radio" name="ownership" value="">Don't care
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Maximum Tution</span><br>leave blank for don't care
+              <input id="tuitionInput" type="text" name="tuition">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Maximum High SAT</span><br>leave blank for don't care
+              <input id="highSATInput" type="text" name="highSAT">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Maximum Low SAT</span><br>leave blank for don't care
+              <input id="lowSATInput" type="text" name="lowSAT">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input id="updateButton" type="submit" value="Update">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8" />
+		<title>
+			Stanford Connection
+		</title>
+		<style>
+			body {
+				display: flex;
+				flex-direction: row;
+				font-family: sans-serif
+			}
+			#profilePicture {
+				width: 240px;
+				height: 300px;
+				margin-bottom: 8px;
+			}
+			#leftSide {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 8;
+				margin-left: 10px;
+				margin-right: 20px;
+			}
+			#rightSide {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 3;
+				margin-right: 10px;
+			}
+			#firstRow {
+				display: flex;
+				background-color: #9A0000;
+				margin-bottom: 10px;
+			}
+			#secondRow {
+				display: flex;
+				flex-direction: row;
+			}
+			#firstColumn {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 2;
+				margin-right: 10px;
+			}
+			#secondColumn {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 9;
+			}	
+			h1 {
+				font-size: 40pt;
+				color: white;
+			}
+			#firstRow {
+				display: flex;
+			}
+			h2 {
+				font-size: 30pt;
+				margin: 0;
+				margin-bottom: 10px;
+			}
+			h4 {
+				background-color: #CC9191;
+				border-top: 2px solid black;
+				border-bottom: 2px solid black;
+				margin-top: 3px;
+				margin-bottom: 10px;
+			}
+			.statusItem {
+				border-top: 1px solid red;
+				padding: 20px;
+			}
+			textarea {
+				width: 80%;
+				height: 20%;
+			}
+			input {
+				margin-top: 5px;
+				width: 85%
+			}
+			#postUpdates {
+				margin-bottom: 10px;
+			}
+			ul {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+			<div id = "leftSide" > 
+			<div id = "firstRow">
+				<h1>
+					Stanford Connection
+				</h1>	
+				<img id="logo" src = "tree-logo.gif" alt = "Stanford Logo">
+			</div>
+			<div id = "secondRow">
+				<div id = "firstColumn" >
+					<img id = "profilePicture" src = "me2.jpg" alt = "A photo of me" >
+					<h4 id = "aboutMe" >
+						About me
+					</h4>
+					<ul id =  "informationList" >
+						<li> <span>  Birthday: </span> June 17, 1998 </li>
+						<li> <span> Gender: </span> Male </li>
+					</ul>
+					<h4 id = "friends" >
+						Friends
+					</h4>
+					<ul id = "friendList" >
+						<li> Christopher Atge </li>
+						<li> Anvit Joshi </li>
+						<li> Emir Ersoy </li>
+					</ul>
+				</div>
+				<div id = "secondColumn">
+					<h2>
+						EFE ACER's profile
+					</h2>
+					<h4 id = "statusUpdates" >
+						Status Updates
+					</h4>
+					<ul id = "statusList" >
+						<li class = "statusItem" > Riding to San Francisco, will be there for the weekend :) </li>
+						<li class = "statusItem" > No more homework!!! </li>
+						<li class = "statusItem" > Doing CS106B homework... :/ </li>
+						<li class = "statusItem" > Doing CS193C homework... </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id = "rightSide" >
+			<h4 id = "postUpdates" >
+				Post Updates
+			</h4>
+			<textarea>
+			</textarea>
+			<input type = "submit" value = "Submit New Update">
+		</div>
+	</body>
+</html>

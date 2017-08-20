@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8"/>
+		<title>bookland</title>
+		<style>
+			body {
+   				 background-color: #76E0FF;
+			}
+			h1 {
+				text-align: center;
+				font-family: "Lucida Grande";
+				font-size: 80pt;
+				color: #0000CC;
+			}
+			form {
+				display: flex;
+				flex-direction: column;
+				overflow: hidden;
+				align-items: center;
+				border: 10px inset #FFFF00;
+				border-radius: 20px;
+				font-family: "Lucida Grande";
+				color: #0000CC;
+				margin: 10px;
+			}
+			input, textarea {
+				background-color: #B2EEFF;
+				color: #0000FF;
+				margin: 10px;
+				border-radius: 10px;
+			}
+			button {
+				background-color: #14C9FF;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>bookland</h1>
+		<form>
+			<div id = "inputDiv">
+				Author Name &nbsp; &nbsp; &nbsp; &nbsp; <input type= "text" id = "authorInput"><br>
+				Book Title &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type = "text" id = "titleInput">
+			</div>
+			<div id = "buttonDiv">
+				<button id = "findButton" type = "button">Find book</button> 
+				<button id = "clearButton" type = "button">Clear info</button>
+			</div>
+			<textarea id = "descriptionArea" name = "descriptionDisplay" rows = "15" cols = "60"></textarea>
+		</form>
+		<script>
+			function book(author, title, description) {
+				this.author = author;
+				this.title = title;
+				this.description = description;
+				this.checkAuthor = function(authorName) {
+					return this.author.toLowerCase() == authorName.toLowerCase();
+				};
+				this.checkTitle = function(titleName) {
+					return this.title.toLowerCase() == titleName.toLowerCase();
+				};
+			}
+			var book1 = new book("Thomas Mann", "Death in Venice", "One of the most famous literary works of the twentieth century, this novella embodies themes that preoccupied Thomas Mann in much of his work: the duality of art and life, the presence of death and disintegration in the midst of existence, the connection between love and suffering and the conflict between the artist and his inner self."); 
+			var book2 = new book("James Joyce", "A portrait of the artist as a young man", "This book is a fictional re-creation of the Irish writer's own life and early environment. The experiences of the novel's young hero, unfold in astonishingly vivid scenes that seem freshly recalled from life and provide a powerful portrait of the coming of age of a young man of unusual intelligence, sensitivity and character.");
+			var book3 = new book("E. M. Forster", "A room with a view", "This work displays an unusually perceptive view of British society in the early 20th century.It is a social comedy set in Florence, Italy, and Surrey, England. Its heroine, Lucy Honeychurch, struggling against straitlaced Victorian attitudes of arrogance, narroe mindedness and sobbery, falls in love - while on holiday in Italy - with the socially unsuitable George Emerson.");
+			var book4 = new book("Isabel Allende", "The house of spirits", "Allende describes the life of three generations of a prominent family in Chile and skillfully combines with this all the main historical events of the time, up until Pinochet's dictatorship.");
+			var book5 = new book("Isabel Allende", "Of love and shadows", "The whole world of Irene Beltran, a young reporter in Chile at the time of the dictatorship, is destroyed when she discovers a series of killings carried out by government soldiers. With the help of a photographer, Francisco Leal, and risking her life, she tries to come up with evidence against the dictatorship.");
+			var books = [book1, book2, book3, book4, book5];
+			var byAuthor = false;
+			
+			function findBook() {
+				if (byAuthor) {
+					var found = false;
+					var bookAuthor;
+					for (var i = 0; i < books.length; i++) {
+						if (books[i].checkAuthor(document.getElementById("authorInput").value)) {
+							if (!found) {
+								document.getElementById("titleInput").value = books[i].title;
+								document.getElementById("descriptionArea").value = books[i].description;
+								found = true;
+								bookAuthor = document.getElementById("authorInput").value;
+							} else if (document.getElementById("authorInput").value == bookAuthor) {
+								document.getElementById("titleInput").value += ", " + books[i].title;
+								document.getElementById("descriptionArea").value += "\n\n" + books[i].description;
+							}
+						}
+					}
+					if (!found) {
+						document.getElementById("titleInput").value = "";
+						document.getElementById("descriptionArea").value = "Book not found.";
+						return;
+					}
+				} else {	
+					for (var i = 0; i < books.length; i++) {
+						if (books[i].checkTitle(document.getElementById("titleInput").value)) {
+							document.getElementById("authorInput").value = books[i].author;
+							document.getElementById("descriptionArea").value = books[i].description;
+							return;
+						}
+					}
+					document.getElementById("authorInput").value = "";
+					document.getElementById("descriptionArea").value = "Book not found.";
+					return;
+				}				
+			}
+			
+			function clearInfo() {
+				document.getElementById("authorInput").value = "";
+				document.getElementById ("titleInput").value = "";
+				document.getElementById("descriptionArea").value = "";
+			}
+			
+			function findByAuthor() {
+				byAuthor = true;
+			} 
+			
+			function findByTitle() {
+				byAuthor = false;
+			} 
+			
+			document.getElementById("titleInput").addEventListener("input", findByTitle, false);
+			document.getElementById ("authorInput").addEventListener("input", findByAuthor, false);
+			document.getElementById("findButton").addEventListener("click", findBook, false);
+			document.getElementById ("clearButton").addEventListener("click", clearInfo, false);
+		</script>
+	</body>
+</html>

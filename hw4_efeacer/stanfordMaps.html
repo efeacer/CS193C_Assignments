@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Stanford Maps</title>
+  <link rel="stylesheet" type="text/css" href="stanfordMaps.css">
+</head>
+
+<body>
+  <script src="stanfordMaps.js" defer></script>
+  <form>
+      <span>Search location: </span><input id="search" type="text" name="search">
+      <button id="find" type="button">Find</button>
+  </form>
+  <div id="mapFrame">
+    <img id="mapImage" src="map-s.gif" alt="mapImage">
+  </div>
+  <div id="controlPanel">
+    <button id="zoomIn" type="button">+</button>
+    <button id="zoomOut" type="button">-</button><br>
+    <br><button id="north" type="button">▲</button><br>
+    <button id="west" type="button">◀</button>
+    <button id="east" type="button">▶</button><br>
+    <button id="south" type="button">▼</button>
+  </div>
+</body>
+
+</html>

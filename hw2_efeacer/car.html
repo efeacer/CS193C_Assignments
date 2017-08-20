@@ -1,0 +1,142 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta charset = "UTF-8"/>
+		<title>Configure Your GT Super Sportscar</title>
+		<style>
+			h1 {
+				font-family: sans-serif;
+				font-size: 28pt;
+			}
+			h2 {
+				margin: 3px;
+				color: white;
+				background-color: #4080bf;
+				font-family: sans-serif;
+				font-size: 20pt;
+			}
+			.biggerFont {
+				font-size: 26pt;
+			}
+			.toRight {
+				float: right;
+				margin-right: 10px;
+			}
+			.smallDiv {
+				border: 2px solid #79a6d2;
+				margin: 10px;
+			}
+			#fifth {
+				height: 214px;
+			}
+			#bigDiv{
+				display: flex;
+			}
+			#firstColumn {
+				display: flex;
+				flex-direction: column;
+			}
+			#secondColumn {
+				display: flex;
+			}
+			ul {
+				margin: 3px;
+			}
+			input, textarea, select{
+				margin: 5px;
+			}
+			input[type = submit], img {
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Configure Your GT Super Sportscar</h1>
+		<div id = "bigDiv">
+			<div id = "firstColumn">
+				<form id = "price">
+					<div class = "smallDiv" id = "first">
+						<h2><span class = "biggerFont">C</span>ONFIGURATION</h2>
+						<input type = "radio" name = "first" value = "17790"> 
+						GT Manual <span class = "toRight">$17,790.00</span><br>
+						<input type = "radio" name = "first" value = "18590">
+						GT Automatic <span class = "toRight">$18,590.00</span><br>
+						<input type = "radio" name = "first" value = "22455">
+						 GT-S Manual <span class = "toRight">$22,455.00</span><br>
+						<input type = "radio" name = "first" value = "23155">
+						 GT-S Sportshift <span class = "toRight">$23,155.00</span><br>
+					</div>
+					<div class = "smallDiv" id = "second">
+						<h2><span class = "biggerFont">F</span>ACTORY <span class = "biggerFont">O</span>PTIONS</h2>
+						<input type = "radio" name = "second" value = "1235"> 
+						Option Combo #1 <span class = "toRight">$1235.00</span><br>
+						<ul>
+							<li>Power Windows, Doors, Cruise Control</li>
+						</ul>
+						<input type = "radio" name = "second" value = "3354"> 
+						Option Combo #2 <span class = "toRight">$3354.00</span><br>
+						<ul>
+							<li>Rear Spoiler and Fog Lambs</li>
+							<li>Keyless Entry</li>
+							<li>Power Tilt & Slide Moonroof</li>
+							<li>Power Windows, Doors, Cruise Control</li>
+						</ul>
+						<input type = "radio" name = "second" value = "0"> 
+						No Combo <span class = "toRight">$0</span><br>
+					</div>
+					<div class = "smallDiv" id = "third">
+						<h2><span class = "biggerFont">D</span>EALER <span class = "biggerFont">O</span>PTIONS</h2>
+						<input type = "checkbox" name = "third" value = "550"> 
+						Upgraded Audio System <span class = "toRight">$550.00</span><br>
+						<input type = "checkbox" name = "third" value = "399"> 
+						VIP Security System <span class = "toRight">$399.00</span><br>
+						<input type = "checkbox" name = "third" value = "295"> 
+						Auto-Dimming Mirror <span class = "toRight">$295.00</span>
+					</div>
+				</form>
+				<div class = "smallDiv" id = "fourth">
+					<h2><span class = "biggerFont">T</span>OTAL <span class = "biggerFont">P</span>RICE</h2>
+					<input id = "totalPrice" type = "text" value = "">
+					<input id = "submitButton" type = "submit" value = "Calculate Total">
+				</div>
+			</div>
+			<div id = "secondColumn">
+				<div class = "smallDiv" id = "fifth">
+					<h2><span class = "biggerFont">C</span>HOOSE <span class = "biggerFont">A</span> <span class = "biggerFont">C</span>OLOR</h2>
+					<select id = "color">
+ 						<option value = "red.jpg" selected = "selected"> Red</option>
+					    <option value = "blue.jpg"> Blue</option>
+ 				    	<option value = "white.jpg"> White</option>
+  						<option value = "silver.jpg"> Silver</option>
+  						<option value = "black.jpg"> Black</option>
+					</select>
+					<img id = "car" src = "red.jpg" alt = "colored car">
+				</div>
+			</div>
+		</div>
+		<script>
+			function setPhoto() {
+				document.getElementById("car").src = document.getElementById("color").value;
+			}
+			document.getElementById("color").addEventListener("change", setPhoto , false);
+			function calculateTotal() {
+				var form = document.getElementById("price");
+				var total = 0;
+				for (var i = 0; i < 10; i++) {
+					if (form.elements[i].checked) {
+						total +=  parseInt(form.elements[i].value);
+					}
+				}
+				total = total.toString();
+				if (total.length == 5) {
+					total = "$" + total.substr(0,2) + "," + total.substr(2) + ".00";
+				}
+				else {
+					total = "$" + total + ".00";
+				}
+				document.getElementById("totalPrice").value =  total;
+			}
+			document.getElementById("submitButton").addEventListener("click", calculateTotal, false);
+		</script>
+	</body>
+</html>
